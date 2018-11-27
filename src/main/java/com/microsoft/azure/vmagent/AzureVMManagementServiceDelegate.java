@@ -201,10 +201,10 @@ public final class AzureVMManagementServiceDelegate {
                     "AzureVMManagementServiceDelegate: createDeployment: Creating a new deployment {0} with VM base name {1}",
                     new Object[]{deploymentName, vmBaseName});
 
-            createAzureResourceGroup(azureClient, locationName, resourceGroupName);
+            // createAzureResourceGroup(azureClient, locationName, resourceGroupName);
             //For blob endpoint url in arm template, it's different based on different environments
             //So create StorageAccount and get suffix
-            createStorageAccount(azureClient, storageAccountType, storageAccountName, locationName, resourceGroupName);
+            // createStorageAccount(azureClient, storageAccountType, storageAccountName, locationName, resourceGroupName);
             StorageAccount storageAccount = getStorageAccount(azureClient, storageAccountName, resourceGroupName);
             String blobEndpointSuffix = getBlobEndpointSuffixForTemplate(storageAccount);
 
@@ -1599,7 +1599,7 @@ public final class AzureVMManagementServiceDelegate {
                 return verifyStorageAccountName(servicePrincipal, resourceGroupName, storageAccountName, storageAccountType);
             }
         };
-        verificationTaskList.add(callVerifyStorageAccountName);
+        // verificationTaskList.add(callVerifyStorageAccountName);
 
         // Callable for NSG.
         Callable<String> callVerifyNSG = new Callable<String>() {
